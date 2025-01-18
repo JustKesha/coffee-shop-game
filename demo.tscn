@@ -1,6 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://c2jog48i1mbmd"]
+[gd_scene load_steps=18 format=3 uid="uid://c2jog48i1mbmd"]
 
 [ext_resource type="Script" path="res://player_camera.gd" id="1_abaij"]
+[ext_resource type="Script" path="res://player_drag.gd" id="2_7ue2e"]
+[ext_resource type="PackedScene" uid="uid://b2gtd58viutnu" path="res://item.tscn" id="3_1kfri"]
 
 [sub_resource type="Environment" id="Environment_01jxy"]
 background_mode = 1
@@ -101,6 +103,11 @@ mesh = SubResource("CapsuleMesh_st1pu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 script = ExtResource("1_abaij")
 
+[node name="DragRaycast" type="RayCast3D" parent="Player/Camera"]
+target_position = Vector3(0, 0, -2)
+collision_mask = 4
+script = ExtResource("2_7ue2e")
+
 [node name="Ground" type="StaticBody3D" parent="."]
 collision_mask = 0
 
@@ -132,3 +139,15 @@ skeleton = NodePath("../..")
 
 [node name="Hitbox" type="CollisionShape3D" parent="Workbench"]
 shape = SubResource("BoxShape3D_tdvum")
+
+[node name="Item1" parent="." instance=ExtResource("3_1kfri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886522, -1.57979)
+
+[node name="Item2" parent="." instance=ExtResource("3_1kfri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886522, -1.57979)
+
+[node name="Item3" parent="." instance=ExtResource("3_1kfri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886522, -1.57979)
+
+[node name="Item4" parent="." instance=ExtResource("3_1kfri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.886522, -1.57979)
