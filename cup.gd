@@ -13,7 +13,8 @@ signal overflow
 func _on_updated() -> void:
 	print(get_desc())
 	
-	var similarities = get_similarities()
+	var similarities = get_top_similarities()
+	
 	for drink_id in similarities:
 		print(str(similarities[drink_id]) + '% ' + Global.DRINKS[drink_id]['name'])
 
@@ -23,7 +24,7 @@ func _on_overflow() -> void:
 
 # HELPERS
 
-func get_difference(a:float, b:float) -> float:
+func get_difference(a: float, b: float) -> float:
 	'''Returns a difference in % between the two given numbers'''
 	return 100 * (abs((a - b))/((a + b)/2))
 
@@ -58,6 +59,34 @@ func get_similarities() -> Dictionary:
 		similarities[drink_id] = get_similarity(drink_id)
 	
 	return similarities
+
+func get_top_similarities(how_many: int = 5, min_value = 50) -> Dictionary:
+	'''Returns a sorted dict from get_similarities clipped by min value'''
+	var similarities = get_similarities()
+	var out = {}
+	
+	min_value = clamp(min_value, 0, 100)
+	
+	for i in how_many:
+		var biggest_value = -1
+		var biggest_id = ''
+		
+		for drink_id in similarities:
+			if( similarities[drink_id] <= biggest_value
+				or similarities[drink_id] < min_value):
+				continue
+			
+			biggest_value = similarities[drink_id]
+			biggest_id = drink_id
+			
+			similarities[drink_id] = -1
+		
+		if biggest_value == -1:
+			break
+		
+		out[biggest_id] = biggest_value
+	
+	return out
 
 func get_desc() -> String:
 	var out = ''
