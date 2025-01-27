@@ -3,7 +3,7 @@ extends RayCast3D
 var DRAG_FORCE = 350.0
 var DRAG_RELATIVE_POSITION = Vector3.UP * .1
 
-var ZOOM_SPEED = 0.5
+var ZOOM_SPEED = 0.15
 var ZOOM_MIN = 0.35
 var ZOOM_MAX = 1.65
 

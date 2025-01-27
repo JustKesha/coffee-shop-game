@@ -1,34 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://csw7b8kdcn5va"]
+[gd_scene load_steps=7 format=3 uid="uid://8cq1ky3rov4o"]
 
-[ext_resource type="PackedScene" uid="uid://b2gtd58viutnu" path="res://item.tscn" id="1_bhv1c"]
+[ext_resource type="PackedScene" uid="uid://dy5vb33uauebx" path="res://ingredient.tscn" id="1_3pvfp"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_d8hnr"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_36lty"]
 size = Vector3(0.101, 0.25, 0.101)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6r2f"]
 albedo_color = Color(0.596078, 0.423529, 0.317647, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_ixoa6"]
+[sub_resource type="BoxMesh" id="BoxMesh_5xvlf"]
 material = SubResource("StandardMaterial3D_k6r2f")
 size = Vector3(0.1, 0.2, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk18q"]
 albedo_color = Color(0.595097, 0.422022, 0.318543, 1)
 
-[sub_resource type="PrismMesh" id="PrismMesh_jjl77"]
+[sub_resource type="PrismMesh" id="PrismMesh_l58md"]
 material = SubResource("StandardMaterial3D_nk18q")
 size = Vector3(0.1, 0.05, 0.1)
 
-[node name="Item" instance=ExtResource("1_bhv1c")]
+[node name="Milk" instance=ExtResource("1_3pvfp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+metadata/id = "milk"
+metadata/volume = 30.0
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
-shape = SubResource("BoxShape3D_d8hnr")
+shape = SubResource("BoxShape3D_36lty")
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="1"]
-mesh = SubResource("BoxMesh_ixoa6")
+mesh = SubResource("BoxMesh_5xvlf")
 
 [node name="Mesh" type="MeshInstance3D" parent="Mesh" index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.124741, 0)
-mesh = SubResource("PrismMesh_jjl77")
+mesh = SubResource("PrismMesh_l58md")

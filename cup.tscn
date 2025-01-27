@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cr6ej4k6m55um"]
+[gd_scene load_steps=9 format=3 uid="uid://cr6ej4k6m55um"]
 
 [ext_resource type="PackedScene" uid="uid://b2gtd58viutnu" path="res://item.tscn" id="1_1f7j8"]
+[ext_resource type="Script" path="res://cup.gd" id="2_qs0ag"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ktwvp"]
 albedo_color = Color(0.438881, 0.313354, 0.22285, 1)
@@ -20,10 +21,14 @@ radius = 0.075
 height = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfkyt"]
-size = Vector3(0.185, 0.21, 0.185)
+size = Vector3(0.185, 0.2, 0.185)
 
-[node name="Item" instance=ExtResource("1_1f7j8")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_mgqcb"]
+size = Vector3(0.15, 0.05, 0.15)
+
+[node name="Cup" instance=ExtResource("1_1f7j8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+script = ExtResource("2_qs0ag")
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CylinderMesh_gj5ag")
@@ -34,3 +39,16 @@ mesh = SubResource("SphereMesh_1wlnh")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="1"]
 shape = SubResource("BoxShape3D_rfkyt")
+
+[node name="Detector" type="Area3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="Hitbox" type="CollisionShape3D" parent="Detector" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+shape = SubResource("BoxShape3D_mgqcb")
+
+[connection signal="overflow" from="." to="." method="_on_overflow"]
+[connection signal="updated" from="." to="." method="_on_updated"]
+[connection signal="body_entered" from="Detector" to="." method="_on_detector_body_entered"]

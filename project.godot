@@ -14,6 +14,10 @@ config/name="Coffee Game"
 run/main_scene="res://demo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+Global="*res://global.gd"
+
 [input]
 
 left={
