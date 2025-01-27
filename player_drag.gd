@@ -1,12 +1,14 @@
 extends RayCast3D
 
-var DRAG_SPEED = 10.0
-var ZOOM_SPEED = 0.1
-var ZOOM_MIN = 0.45
-var ZOOM_MAX = 2.0
+var DRAG_FORCE = 350.0
+var ZOOM_SPEED = 1.5
+var ZOOM_MIN = 0.35
+var ZOOM_MAX = 1.65
 
 var drag_object: RigidBody3D
 var drag_distance: float
+
+# HELPERS
 
 func get_collision_distance() -> float:
 	if not is_colliding():
@@ -14,56 +16,92 @@ func get_collision_distance() -> float:
 	
 	return global_transform.origin.distance_to(get_collision_point())
 
-func start_dragging(new_drag_object: RigidBody3D):
+func is_object_draggable(object) -> bool:
+	if object is RigidBody3D:
+		return true
+	
+	return false
+
+func get_draggable_aimed() -> RigidBody3D:
+	var object_aimed = get_collider()
+	
+	if is_object_draggable(object_aimed):
+		return object_aimed
+	
+	return null
+
+func get_drag_position() -> Vector3:
+	var forward = -get_global_transform().basis.z
+	
+	return global_position + forward * drag_distance
+
+func get_drag_velocity(
+	delta: float,
+	force: float = DRAG_FORCE,
+	object: RigidBody3D = drag_object,
+	) -> Vector3:
+	if not object:
+		return Vector3.ZERO
+	
+	return (get_drag_position() - object.global_position) * delta * force
+
+# SETTERS
+
+func set_drag_distance(value: float):
+	drag_distance = clamp(value, ZOOM_MIN, ZOOM_MAX)
+
+func set_drag_object(object: RigidBody3D):
 	if drag_object:
 		stop_dragging()
 	
-	new_drag_object.freeze = true
+	drag_object = object
+
+# ACTIONS
+
+func start_dragging(
+	object: RigidBody3D = get_draggable_aimed(),
+	distance: float = get_collision_distance(),
+	):
+	if not object:
+		return
 	
-	drag_object = new_drag_object
-	drag_distance = get_collision_distance()
+	if drag_object:
+		stop_dragging()
+	
+	set_drag_object(object)
+	set_drag_distance(distance)
 
 func stop_dragging():
 	if not drag_object:
 		return
 	
-	drag_object.freeze = false
-	
 	drag_object = null
 
-func set_drag_distance(new_value: float):
-	if not drag_object:
+func apply_drag(
+	delta: float,
+	force: float = DRAG_FORCE,
+	object: RigidBody3D = drag_object,
+	):
+	if not object:
 		return
 	
-	drag_distance = clamp(new_value, ZOOM_MIN, ZOOM_MAX)
+	object.linear_velocity = get_drag_velocity(delta, force, object)
+	object.angular_velocity = Vector3.ZERO
+
+# CONTROLS
 
 func _input(event):
 	if event.is_action_pressed('interact'):
-		var aimed_object = get_collider()
-		
-		if aimed_object is RigidBody3D:
-			start_dragging(aimed_object)
+		start_dragging()
 	
 	elif event.is_action_released('interact'):
 		stop_dragging()
 	
 	if event.is_action_pressed('zoom_in'):
 		set_drag_distance(drag_distance - ZOOM_SPEED)
+	
 	elif event.is_action_pressed('zoom_out'):
 		set_drag_distance(drag_distance + ZOOM_SPEED)
 
-func drag(
-	delta: float,
-	drag_object: RigidBody3D = drag_object,
-	speed: float = DRAG_SPEED ):
-	if not drag_object:
-		return
-	
-	var forward = -get_global_transform().basis.z
-	var drag_position = global_position + forward * drag_distance
-	var new_object_position = drag_object.global_position.lerp(drag_position, speed * delta)
-	
-	drag_object.global_position = new_object_position
-
-func _process(delta: float) -> void:
-	drag(delta)
+func _physics_process(delta: float) -> void:
+	apply_drag(delta)

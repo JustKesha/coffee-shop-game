@@ -220,7 +220,6 @@ transform = Transform3D(1, 0, 0, 0, 0.999848, -0.0174524, 0, 0.0174524, 0.999848
 collision_mask = 0
 
 [node name="Mesh" type="MeshInstance3D" parent="Workbench"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_vyja4")
 skeleton = NodePath("../..")
 
