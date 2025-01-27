@@ -2,18 +2,32 @@ extends Node
 
 var DRINKS = {
 	# Drink ID
-	"LATTE": {
-		'name': 'Latte',
-		# Ingredient ID to volume %
-		'ingredients': {
-			'milk': 50,
-			'coffee': 50,
-		}
-	},
 	"ESPRESSO": {
 		'name': 'Espresso',
+		# Ingredient ID to volume %
 		'ingredients': {
 			'coffee': 100,
+		}
+	},
+	"LATTE": {
+		'name': 'Latte',
+		'ingredients': {
+			'coffee': 33.3,
+			'milk': 66.6,
+		}
+	},
+	"CAPPUCCINO": {
+		'name': 'Cappuccino',
+		'ingredients': {
+			'coffee': 50,
+			'milk': 50,
+		}
+	},
+	"FLAT_WHITE": {
+		'name': 'Flat White',
+		'ingredients': {
+			'coffee': 25,
+			'milk': 75,
 		}
 	},
 }
