@@ -1,5 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
+*.tmp
+~*
 
 # Godot-specific ignores
 .import/
@@ -13,3 +15,10 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+mono_crash.*.blob
+
+# Visual Studio
+/.vs/
+
+# Visual Studio Code
+/.vscode/
