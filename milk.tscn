@@ -30,5 +30,5 @@ shape = SubResource("BoxShape3D_d8hnr")
 mesh = SubResource("BoxMesh_ixoa6")
 
 [node name="Mesh" type="MeshInstance3D" parent="Mesh" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.124741, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.124741, 0)
 mesh = SubResource("PrismMesh_jjl77")

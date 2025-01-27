@@ -48,7 +48,7 @@ material = SubResource("StandardMaterial3D_hjtx0")
 size = Vector3(5, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tdvum"]
-size = Vector3(5, 0.5, 1)
+size = Vector3(5, 0.1, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mu7sh"]
 albedo_color = Color(0.113725, 0.0745098, 0.0470588, 1)
@@ -224,7 +224,6 @@ mesh = SubResource("BoxMesh_vyja4")
 skeleton = NodePath("../..")
 
 [node name="Hitbox" type="CollisionShape3D" parent="Workbench"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
 shape = SubResource("BoxShape3D_tdvum")
 
 [node name="Wall" type="StaticBody3D" parent="."]

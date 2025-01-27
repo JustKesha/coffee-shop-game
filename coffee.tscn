@@ -12,13 +12,12 @@ bottom_radius = 0.05
 height = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nvnsh"]
-size = Vector3(0.1, 0.2, 0.1)
+size = Vector3(0.11, 0.2, 0.11)
 
 [node name="Item" instance=ExtResource("1_ip07u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000407666, -0.000754893, 0.00226677)
 mesh = SubResource("CylinderMesh_efona")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="1"]

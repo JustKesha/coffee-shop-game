@@ -20,7 +20,7 @@ radius = 0.075
 height = 0.01
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rfkyt"]
-size = Vector3(0.17, 0.21, 0.17)
+size = Vector3(0.185, 0.21, 0.185)
 
 [node name="Item" instance=ExtResource("1_1f7j8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

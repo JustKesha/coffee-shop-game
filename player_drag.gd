@@ -1,9 +1,14 @@
 extends RayCast3D
 
 var DRAG_FORCE = 350.0
-var ZOOM_SPEED = 1.5
+var DRAG_RELATIVE_POSITION = Vector3.UP * .1
+
+var ZOOM_SPEED = 0.5
 var ZOOM_MIN = 0.35
 var ZOOM_MAX = 1.65
+
+var STABILISATION_SPEED = 3.5
+var STABILISATION_ANGLE = Vector3(.2, 1, 0)
 
 var drag_object: RigidBody3D
 var drag_distance: float
@@ -33,7 +38,7 @@ func get_draggable_aimed() -> RigidBody3D:
 func get_drag_position() -> Vector3:
 	var forward = -get_global_transform().basis.z
 	
-	return global_position + forward * drag_distance
+	return global_position + forward * drag_distance + DRAG_RELATIVE_POSITION
 
 func get_drag_velocity(
 	delta: float,
@@ -75,6 +80,7 @@ func stop_dragging():
 	if not drag_object:
 		return
 	
+	drag_object.sleeping = false
 	drag_object = null
 
 func apply_drag(
@@ -87,6 +93,9 @@ func apply_drag(
 	
 	object.linear_velocity = get_drag_velocity(delta, force, object)
 	object.angular_velocity = Vector3.ZERO
+	
+	object.rotation = object.rotation.lerp(
+		STABILISATION_ANGLE, delta * STABILISATION_SPEED)
 
 # CONTROLS
 
