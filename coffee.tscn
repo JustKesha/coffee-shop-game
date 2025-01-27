@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1wkpaufvqats"]
+
+[ext_resource type="PackedScene" uid="uid://b2gtd58viutnu" path="res://item.tscn" id="1_ip07u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dfxic"]
+albedo_color = Color(0.381833, 0.282885, 0.220609, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_efona"]
+material = SubResource("StandardMaterial3D_dfxic")
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nvnsh"]
+size = Vector3(0.1, 0.2, 0.1)
+
+[node name="Item" instance=ExtResource("1_ip07u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000407666, -0.000754893, 0.00226677)
+mesh = SubResource("CylinderMesh_efona")
+
+[node name="Hitbox" type="CollisionShape3D" parent="." index="1"]
+shape = SubResource("BoxShape3D_nvnsh")

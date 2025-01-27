@@ -1,8 +1,8 @@
 extends RayCast3D
 
-var DRAG_SPEED = 5.0
-var ZOOM_SPEED = 0.25
-var ZOOM_MIN = 0.5
+var DRAG_SPEED = 10.0
+var ZOOM_SPEED = 0.1
+var ZOOM_MIN = 0.45
 var ZOOM_MAX = 2.0
 
 var drag_object: RigidBody3D
