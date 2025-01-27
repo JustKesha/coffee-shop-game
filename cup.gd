@@ -60,7 +60,7 @@ func get_similarities() -> Dictionary:
 	
 	return similarities
 
-func get_top_similarities(how_many: int = 5, min_value = 50) -> Dictionary:
+func get_top_similarities(how_many: int = 3, min_value = 0) -> Dictionary:
 	'''Returns a sorted dict from get_similarities clipped by min value'''
 	var similarities = get_similarities()
 	var out = {}
@@ -78,13 +78,12 @@ func get_top_similarities(how_many: int = 5, min_value = 50) -> Dictionary:
 			
 			biggest_value = similarities[drink_id]
 			biggest_id = drink_id
-			
-			similarities[drink_id] = -1
 		
 		if biggest_value == -1:
 			break
 		
 		out[biggest_id] = biggest_value
+		similarities[biggest_id] = -1
 	
 	return out
 
