@@ -75,7 +75,7 @@ material = SubResource("StandardMaterial3D_uqn13")
 size = Vector3(3, 0.1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_25pir"]
-size = Vector3(3, 0.6, 0.75)
+size = Vector3(3, 0.6, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_scvjn"]
 albedo_color = Color(1, 0.65098, 0.6, 1)
@@ -107,8 +107,8 @@ rings = 4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_olofx"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nkka6"]
-size = Vector3(1, 1, 0.75)
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ofmh"]
+size = Vector3(0.75, 1, 0.5)
 
 [node name="Shop" type="Node3D"]
 
@@ -200,6 +200,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7191, 0.606408, -2.11666)
 
 [node name="Ingredient6" parent="Items" instance=ExtResource("5_macea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55531, 0.606408, -2.11666)
+
+[node name="Milk" parent="Items" instance=ExtResource("5_macea")]
+transform = Transform3D(0.667079, 0, -0.744987, 0, 1, 0, 0.744987, 0, 0.667079, 4.29351, 0.7, 2.34905)
+
+[node name="Milk2" parent="Items" instance=ExtResource("5_macea")]
+transform = Transform3D(0.667079, 0, -0.744987, 0, 1, 0, 0.744987, 0, 0.667079, 4.294, 0.7, 2.099)
+
+[node name="Milk3" parent="Items" instance=ExtResource("5_macea")]
+transform = Transform3D(0.667079, 0, -0.744987, 0, 1, 0, 0.744987, 0, 0.667079, 4.294, 0.7, 1.849)
+
+[node name="Coffee" parent="Items" instance=ExtResource("3_nub8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.28079, 0.7, -0.0723574)
+
+[node name="Coffee2" parent="Items" instance=ExtResource("3_nub8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09923, 0.705062, 0.115858)
+
+[node name="Coffee3" parent="Items" instance=ExtResource("3_nub8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17184, 0.706869, -0.267731)
 
 [node name="Ingredient9" parent="Items" instance=ExtResource("5_macea")]
 transform = Transform3D(0.871821, 0, -0.489824, 0, 1, 0, 0.489824, 0, 0.871821, -0.638174, 0.606408, -2.11666)
@@ -348,12 +366,12 @@ skeleton = NodePath("../..")
 shape = SubResource("BoxShape3D_olofx")
 
 [node name="OrderPickup" type="Area3D" parent="Customer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.19209e-07, 0, -0.893365)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.75)
 collision_layer = 0
 collision_mask = 4
 
 [node name="Hitbox" type="CollisionShape3D" parent="Customer/OrderPickup"]
-shape = SubResource("BoxShape3D_nkka6")
+shape = SubResource("BoxShape3D_6ofmh")
 
 [connection signal="not_satisfied" from="Customer" to="Customer" method="_on_not_satisfied"]
 [connection signal="request_update" from="Customer" to="Customer" method="_on_request_update"]

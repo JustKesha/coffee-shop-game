@@ -1,6 +1,6 @@
 class_name Cup extends Item
 
-var VOLUME_CAP = 120
+var VOLUME_CAP = 250
 
 var volume = 0
 var ingredients = {} # Ingredient ID to volume
@@ -26,7 +26,7 @@ func _on_overflow() -> void:
 
 func get_difference(a: float, b: float) -> float:
 	'''Returns a difference in % between the two given numbers'''
-	return 100 * (abs((a - b))/((a + b)/2))
+	return 100 * (abs(a - b)/((a + b)/2))
 
 func get_similarity(drink_id) -> float:
 	if not Global.DRINKS.has(drink_id):
@@ -39,7 +39,6 @@ func get_similarity(drink_id) -> float:
 	
 	for ingr_id in recipe:
 		if not ingr_id in ingredients:
-			similarity += 0
 			continue
 		
 		var ing_percent = ingredients[ingr_id] / volume * 100

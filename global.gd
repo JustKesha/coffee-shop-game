@@ -9,8 +9,15 @@ var DRINKS = {
 			'coffee': 100,
 		}
 	},
-	"LATTE": {
-		'name': 'Latte',
+	"ESPRESSO_MACCHIATO": {
+		'name': 'Espresso Macchiato',
+		'ingredients': {
+			'coffee': 75,
+			'milk': 25,
+		}
+	},
+	"FLAT_WHITE": {
+		'name': 'Flat White',
 		'ingredients': {
 			'coffee': 33.3,
 			'milk': 66.6,
@@ -19,15 +26,15 @@ var DRINKS = {
 	"CAPPUCCINO": {
 		'name': 'Cappuccino',
 		'ingredients': {
-			'coffee': 50,
-			'milk': 50,
+			'coffee': 20,
+			'milk': 80,
 		}
 	},
-	"FLAT_WHITE": {
-		'name': 'Flat White',
+	"LATTE": {
+		'name': 'Latte',
 		'ingredients': {
-			'coffee': 25,
-			'milk': 75,
+			'coffee': 14.3,
+			'milk': 85.3,
 		}
 	},
 }
