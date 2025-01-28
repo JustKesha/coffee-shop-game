@@ -28,7 +28,7 @@ Currently you can make a total of 5 drinks out of these two ingredients:
 1. `Cappuccino` (20/80)
 1. `Latte` (14.3/85.3)
 
-This customer dummy will analyse your drink, using complex wizardry, to make sure you get the ratio of ingredients on it's order right, or at least close enough.
+This customer dummy will analyse your drink, using [complex wizardry](./scripts/cup.gd), to make sure you get the ratio of ingredients on it's order right, or at least close enough.
 
 ![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333721620296110080/image.png?ex=6799ec8d&is=67989b0d&hm=6d74d380092763f31fdf54f2363dee3cc68e5c096e577be1d171b50d733026fe&)
 
