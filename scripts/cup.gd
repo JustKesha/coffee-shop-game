@@ -24,10 +24,6 @@ func _on_overflow() -> void:
 
 # HELPERS
 
-func get_difference(a: float, b: float) -> float:
-	'''Returns a difference in % between the two given numbers'''
-	return 100 * (abs(a - b)/((a + b)/2))
-
 func get_similarity(drink_id) -> float:
 	if not Global.DRINKS.has(drink_id):
 		return -1
@@ -44,7 +40,7 @@ func get_similarity(drink_id) -> float:
 		var ing_percent = ingredients[ingr_id] / volume * 100
 		var ing_percent_goal = recipe[ingr_id]
 		
-		similarity += 100 - get_difference(ing_percent, ing_percent_goal)
+		similarity += 100 - abs(ing_percent - ing_percent_goal)
 	
 	similarity /= recipe.size()
 	
