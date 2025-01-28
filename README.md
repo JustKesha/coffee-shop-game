@@ -1,11 +1,5 @@
 # Coffee Shop Game
-This is a small first-person 3D game I'm developing in Godot 4.3, with [barinovadn](https://github.com/barinovadn) busy on the models part. Very soon it is to become a complete coffee making simulator. But as of now you can read on the current state of the project below!
-
-1. [About](#coffee-shop-game)
-1. [Gameplay](#gameplay)
-    - [New features](#🌶️-latest-changes)
-    - [Ingidients mixing](#🧊-ingredients-mixing)
-    - [Drink type calculation](#☕-drink-type-calculation)
+Small simulator game I'm developing in Godot, with [barinovadn](https://github.com/barinovadn) busy on the models part.
 
 # Gameplay
 
@@ -13,18 +7,19 @@ This is a small first-person 3D game I'm developing in Godot 4.3, with [barinova
 
 ## 🌶️ Latest changes
 
-- You can now also slowly pour certain ingredients like `milk` into cups *(instead of only being able to insta drop them)*
-- Updated placeholder models
+* You can now pour certain ingredients like `milk` into cups.
 
-## 🧊 Ingredients mixing
+## 🧊 Ingredients
 
-Currently there have been two ingidients added to the game:
+Currently there are two ingidients in the game:
 - `Milk`
 - And `coffee mixture`
 
-You make coffee by combining the right proportions of those two in a cup, to do so you can drag & drop or slowly pour the ingredients in it.
+Some of them, like `milk` are interactable: You can start pouring it while you hold it.
 
-## ☕ Drink type calculation
+You make coffee by combining named ingredients in a cup, to do so just drag & drop or slowly pour the ingredients in it.
+
+## ☕ Coffee Math
 
 Currently you can make a total of 5 drinks out of these two ingredients:
 1. `Espresso` (100% coffee, 0% milk)
@@ -33,18 +28,9 @@ Currently you can make a total of 5 drinks out of these two ingredients:
 1. `Cappuccino` (20/80)
 1. `Latte` (14.3/85.3)
 
-![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333721620296110080/image.png?ex=6799ec8d&is=67989b0d&hm=6d74d380092763f31fdf54f2363dee3cc68e5c096e577be1d171b50d733026fe&)<br>
-This customer dummy will analyse your drink, using complex wizardry, to make sure you get the ratio of ingredients on it's order is right, or at least close enough.
+This customer dummy will analyse your drink, using complex wizardry, to make sure you get the ratio of ingredients on it's order right, or at least close enough.
 
-[Code in game](./scripts/cup.gd)
-
-```
-1 coffee, 2 milk
-
-80% Flat White
-66% Cappuccino
-48% Latte
-```
+![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333721620296110080/image.png?ex=6799ec8d&is=67989b0d&hm=6d74d380092763f31fdf54f2363dee3cc68e5c096e577be1d171b50d733026fe&)
 
 *Here is a python code snippet that represents this logic.*
 
@@ -72,8 +58,3 @@ accuracy = accuracy/len(recipe.keys())
 ```
 99.79140577903337
 ```
-
-
-The project is pretty fresh so that's about it on the interesting part for now.
-
-![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333720322045771797/image.png?ex=6799eb58&is=679899d8&hm=afddb7c6278dce2524846ae2cb98cb70e31766a603b96acd738067d082583c88&)
