@@ -1,4 +1,4 @@
 class_name Ingredient extends Item
 
-@onready var id = get_meta('id')
-@onready var volume = get_meta('volume')
+@onready var id:String = get_meta('id')
+@onready var volume:float = get_meta('volume')

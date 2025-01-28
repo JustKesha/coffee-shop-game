@@ -3,20 +3,26 @@ This is a small first-person 3D game I'm developing in Godot 4.3, with [barinova
 
 1. [About](#coffee-shop-game)
 1. [Gameplay](#gameplay)
-    - [Ingidients combining](#ingidients-combining)
-    - [Drink type calculation](#drink-type-calculation)
+    - [New features](#🌶️-latest-changes)
+    - [Ingidients mixing](#🧊-ingredients-mixing)
+    - [Drink type calculation](#☕-drink-type-calculation)
 
 # Gameplay
 
-![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333653703013568592/image.png?ex=6799ad4c&is=67985bcc&hm=b39ff40af7b5ab97ff417dc5ead551227bb00fb747cf0892ed7a37a041402f90&)
+![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333840482911916126/image.png?ex=679a5b40&is=679909c0&hm=5c5391f64653848ed65aeeaf0aaf911218b243eb66cf3538d3e34eec8c8d5197&)
 
-## 🧊 Ingidients combining
+## 🌶️ Latest changes
+
+- You can now also slowly pour certain ingredients like `milk` into cups *(instead of only being able to insta drop them)*
+- Updated placeholder models
+
+## 🧊 Ingredients mixing
 
 Currently there have been two ingidients added to the game:
 - `Milk`
 - And `coffee mixture`
 
-You make coffee by combining the right proportions of those two in a cup, to do so you can simply drag and drop the ingredients in it.
+You make coffee by combining the right proportions of those two in a cup, to do so you can drag & drop or slowly pour the ingredients in it.
 
 ## ☕ Drink type calculation
 

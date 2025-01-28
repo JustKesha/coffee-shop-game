@@ -12,6 +12,7 @@ var STABILISATION_ANGLE = Vector3(.2, 1, 0)
 
 var drag_object: RigidBody3D
 var drag_distance: float
+var drag_angle: Vector3
 
 # HELPERS
 
@@ -60,6 +61,12 @@ func set_drag_object(object: RigidBody3D):
 		stop_dragging()
 	
 	drag_object = object
+	
+	if drag_object is Item:
+		drag_object.is_held = true
+
+func set_drag_angle(angle: Vector3 = STABILISATION_ANGLE):
+	drag_angle = angle
 
 # ACTIONS
 
@@ -75,12 +82,17 @@ func start_dragging(
 	
 	set_drag_object(object)
 	set_drag_distance(distance)
+	set_drag_angle()
 
 func stop_dragging():
 	if not drag_object:
 		return
 	
 	drag_object.sleeping = false
+	
+	if drag_object is Item:
+		drag_object.is_held = false
+		
 	drag_object = null
 
 func apply_drag(
@@ -94,16 +106,15 @@ func apply_drag(
 	object.linear_velocity = get_drag_velocity(delta, force, object)
 	object.angular_velocity = Vector3.ZERO
 	
-	object.rotation = object.rotation.lerp(
-		STABILISATION_ANGLE, delta * STABILISATION_SPEED)
+	object.rotation = object.rotation.lerp(drag_angle, delta * STABILISATION_SPEED)
 
 # CONTROLS
 
 func _input(event):
-	if event.is_action_pressed('interact'):
+	if event.is_action_pressed('drag'):
 		start_dragging()
 	
-	elif event.is_action_released('interact'):
+	elif event.is_action_released('drag'):
 		stop_dragging()
 	
 	if event.is_action_pressed('zoom_in'):

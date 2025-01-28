@@ -1,36 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://8cq1ky3rov4o"]
+[gd_scene load_steps=9 format=3 uid="uid://g34akfc4801k"]
 
-[ext_resource type="PackedScene" uid="uid://dy5vb33uauebx" path="res://scenes/ingredient.tscn" id="1_3pvfp"]
+[ext_resource type="PackedScene" uid="uid://dkt8tumdejaal" path="res://scenes/pourable_ingredient.tscn" id="1_jx6iq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_36lty"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ff541"]
 size = Vector3(0.101, 0.25, 0.101)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6r2f"]
 albedo_color = Color(0.596078, 0.423529, 0.317647, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_5xvlf"]
+[sub_resource type="BoxMesh" id="BoxMesh_e32r7"]
 material = SubResource("StandardMaterial3D_k6r2f")
 size = Vector3(0.1, 0.2, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nk18q"]
 albedo_color = Color(0.595097, 0.422022, 0.318543, 1)
 
-[sub_resource type="PrismMesh" id="PrismMesh_l58md"]
+[sub_resource type="PrismMesh" id="PrismMesh_22vh8"]
 material = SubResource("StandardMaterial3D_nk18q")
 size = Vector3(0.1, 0.05, 0.1)
 
-[node name="Milk" instance=ExtResource("1_3pvfp")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v01bv"]
+albedo_color = Color(0.437947, 0.301581, 0.217485, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d5iaj"]
+material = SubResource("StandardMaterial3D_v01bv")
+size = Vector3(0.065, 0.1, 0.001)
+
+[node name="PourableIngredient" instance=ExtResource("1_jx6iq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 metadata/id = "milk"
-metadata/volume = 30.0
+metadata/volume = 180.0
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
-shape = SubResource("BoxShape3D_36lty")
+shape = SubResource("BoxShape3D_ff541")
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="1"]
-mesh = SubResource("BoxMesh_5xvlf")
+mesh = SubResource("BoxMesh_e32r7")
 
-[node name="Mesh" type="MeshInstance3D" parent="Mesh" index="0"]
+[node name="Mesh1" type="MeshInstance3D" parent="Mesh" index="0"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.124741, 0)
-mesh = SubResource("PrismMesh_l58md")
+mesh = SubResource("PrismMesh_22vh8")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Mesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0495544)
+mesh = SubResource("BoxMesh_d5iaj")
+skeleton = NodePath("../..")
+
+[node name="PourRaycastStart" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13, 0.03)
+
+[connection signal="emptied" from="." to="." method="_on_emptied"]
+[connection signal="spilled" from="." to="." method="_on_spilled"]
+[connection signal="timeout" from="PourDelay" to="." method="_on_pour_delay_timeout"]
+[connection signal="timeout" from="PourTick" to="." method="_on_pour_tick_timeout"]

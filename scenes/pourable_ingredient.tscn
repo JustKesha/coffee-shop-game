@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkt8tumdejaal"]
+
+[ext_resource type="PackedScene" uid="uid://dy5vb33uauebx" path="res://scenes/ingredient.tscn" id="1_bt5nf"]
+[ext_resource type="Script" path="res://scripts/ingredientpourable.gd" id="2_i07a6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cixf5"]
+size = Vector3(0.02, 0.2, 0.02)
+
+[node name="PourableIngredient" instance=ExtResource("1_bt5nf")]
+script = ExtResource("2_i07a6")
+metadata/pour_per_tick = 5.0
+
+[node name="PourDelay" type="Timer" parent="." index="0"]
+wait_time = 0.35
+one_shot = true
+
+[node name="PourTick" type="Timer" parent="." index="1"]
+wait_time = 0.2
+
+[node name="PourRaycast" type="RayCast3D" parent="." index="2"]
+target_position = Vector3(0, 0, -1)
+collision_mask = 4
+
+[node name="DebugMesh" type="MeshInstance3D" parent="PourRaycast" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 4.30942e-09, -0.0985879)
+visible = false
+mesh = SubResource("BoxMesh_cixf5")
+
+[connection signal="interrupted" from="." to="." method="_on_interrupted"]
+[connection signal="used" from="." to="." method="_on_used"]

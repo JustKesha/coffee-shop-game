@@ -99,22 +99,27 @@ func get_desc() -> String:
 
 # ACTIONS
 
+func add_ingredient_data(id:String, ingr_volume:float):
+	if not id in ingredients:
+		ingredients[id] = 0
+	
+	ingredients[id] += ingr_volume
+	volume += ingr_volume
+	
+	print('\nAdded ' + id + ', ' + str(ingr_volume) + ' ml')
+	
+	if volume > VOLUME_CAP:
+		overflow.emit()
+	
+	updated.emit()
+
 func add_ingredient(ingr):
 	if not ingr is Ingredient:
 		return
 	
-	if not ingr.id in ingredients:
-		ingredients[ingr.id] = 0
-	ingredients[ingr.id] += ingr.volume
-	volume += ingr.volume
+	add_ingredient_data(ingr.id, ingr.volume)
+	
 	ingr.kill()
-	
-	if volume > VOLUME_CAP:
-		overflow.emit()
-		return
-	
-	print('\nAdded ' + ingr.id + ', ' + str(ingr.volume) + ' ml')
-	updated.emit()
 
 # DETECTION
 

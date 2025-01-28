@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://o33ph7vkyqtr"]
+[gd_scene load_steps=9 format=3 uid="uid://o33ph7vkyqtr"]
 
 [ext_resource type="PackedScene" uid="uid://dy5vb33uauebx" path="res://scenes/ingredient.tscn" id="1_f5nvx"]
 
@@ -11,6 +11,24 @@ top_radius = 0.05
 bottom_radius = 0.05
 height = 0.2
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m742x"]
+albedo_color = Color(0.274935, 0.211872, 0.173059, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_1qb2x"]
+material = SubResource("StandardMaterial3D_m742x")
+top_radius = 0.051
+bottom_radius = 0.051
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tcjx3"]
+albedo_color = Color(0.606487, 0.495736, 0.426944, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_gbvlm"]
+material = SubResource("StandardMaterial3D_tcjx3")
+top_radius = 0.047
+bottom_radius = 0.047
+height = 0.08
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_bja2i"]
 size = Vector3(0.1, 0.2, 0.1)
 
@@ -21,6 +39,15 @@ metadata/volume = 30.0
 
 [node name="Mesh" type="MeshInstance3D" parent="." index="0"]
 mesh = SubResource("CylinderMesh_a1lva")
+
+[node name="Mesh1" type="MeshInstance3D" parent="Mesh" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0817522, 0)
+mesh = SubResource("CylinderMesh_1qb2x")
+skeleton = NodePath("../..")
+
+[node name="Mesh2" type="MeshInstance3D" parent="Mesh" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, 0.004)
+mesh = SubResource("CylinderMesh_gbvlm")
 
 [node name="Hitbox" type="CollisionShape3D" parent="." index="1"]
 shape = SubResource("BoxShape3D_bja2i")
