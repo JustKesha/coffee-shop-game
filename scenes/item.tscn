@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b2gtd58viutnu"]
 
-[ext_resource type="Script" path="res://item.gd" id="1_18sld"]
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_18sld"]
 
 [node name="Item" type="RigidBody3D"]
 collision_layer = 4

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://5t8434o6daug"]
 
-[ext_resource type="Script" path="res://player_camera.gd" id="1_df4ck"]
-[ext_resource type="Script" path="res://player_drag.gd" id="2_ps5yc"]
+[ext_resource type="Script" path="res://scripts/player_camera.gd" id="1_df4ck"]
+[ext_resource type="Script" path="res://scripts/player_drag.gd" id="2_ps5yc"]
 
 [sub_resource type="GDScript" id="GDScript_loyru"]
 script/source = "extends CharacterBody3D

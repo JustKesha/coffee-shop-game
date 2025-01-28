@@ -3,8 +3,8 @@ This is a small first-person 3D game I'm developing in Godot 4.3, with [barinova
 
 1. [About](#coffee-shop-game)
 1. [Gameplay](#gameplay)
-    1. [Ingidients combining](#ingidients-combining)
-    1. [Drink type calculation](#drink-type-calculation)
+    - [Ingidients combining](#ingidients-combining)
+    - [Drink type calculation](#drink-type-calculation)
 
 # Gameplay
 

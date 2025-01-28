@@ -1,11 +1,11 @@
 [gd_scene load_steps=30 format=3 uid="uid://c2jog48i1mbmd"]
 
-[ext_resource type="PackedScene" uid="uid://5t8434o6daug" path="res://player.tscn" id="1_211l8"]
-[ext_resource type="PackedScene" uid="uid://o33ph7vkyqtr" path="res://coffee.tscn" id="3_nub8f"]
-[ext_resource type="PackedScene" uid="uid://cr6ej4k6m55um" path="res://cup.tscn" id="4_5rk0j"]
-[ext_resource type="PackedScene" uid="uid://bfcidex13ttfo" path="res://shelf.tscn" id="5_4hngw"]
-[ext_resource type="PackedScene" uid="uid://8cq1ky3rov4o" path="res://milk.tscn" id="5_macea"]
-[ext_resource type="Script" path="res://customer.gd" id="6_f1yj1"]
+[ext_resource type="PackedScene" uid="uid://5t8434o6daug" path="res://scenes/player.tscn" id="1_211l8"]
+[ext_resource type="PackedScene" uid="uid://o33ph7vkyqtr" path="res://scenes/coffee.tscn" id="3_nub8f"]
+[ext_resource type="PackedScene" uid="uid://cr6ej4k6m55um" path="res://scenes/cup.tscn" id="4_5rk0j"]
+[ext_resource type="PackedScene" uid="uid://bfcidex13ttfo" path="res://scenes/shelf.tscn" id="5_4hngw"]
+[ext_resource type="PackedScene" uid="uid://8cq1ky3rov4o" path="res://scenes/milk.tscn" id="5_macea"]
+[ext_resource type="Script" path="res://scripts/customer.gd" id="6_f1yj1"]
 
 [sub_resource type="Environment" id="Environment_01jxy"]
 background_mode = 1

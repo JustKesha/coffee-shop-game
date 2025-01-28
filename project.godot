@@ -11,12 +11,12 @@ config_version=5
 [application]
 
 config/name="Coffee Game"
-run/main_scene="res://demo.tscn"
+run/main_scene="res://scenes/demo.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
 [autoload]
 
-Global="*res://global.gd"
+Global="*res://scripts/global.gd"
 
 [input]
 
