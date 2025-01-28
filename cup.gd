@@ -1,4 +1,4 @@
-extends Item
+class_name Cup extends Item
 
 var VOLUME_CAP = 120
 
@@ -62,6 +62,7 @@ func get_similarities() -> Dictionary:
 
 func get_top_similarities(how_many: int = 3, min_value = 0) -> Dictionary:
 	'''Returns a sorted dict from get_similarities clipped by min value'''
+	# I know its horrible
 	var similarities = get_similarities()
 	var out = {}
 	
