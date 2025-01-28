@@ -10,7 +10,7 @@ This is a small first-person 3D game I'm developing in Godot 4.3, with [barinova
 
 ![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333653703013568592/image.png?ex=6799ad4c&is=67985bcc&hm=b39ff40af7b5ab97ff417dc5ead551227bb00fb747cf0892ed7a37a041402f90&)
 
-## Ingidients combining
+## 🧊 Ingidients combining
 
 Currently there have been two ingidients added to the game:
 - `Milk`
@@ -18,7 +18,7 @@ Currently there have been two ingidients added to the game:
 
 You make coffee by combining the right proportions of those two in a cup, to do so you can simply drag and drop the ingredients in it.
 
-## Drink type calculation
+## ☕ Drink type calculation
 
 Currently you can make a total of 5 drinks out of these two ingredients:
 1. `Espresso` (100% coffee, 0% milk)
@@ -33,7 +33,7 @@ This customer dummy will analyse your drink, using complex wizardry, to make sur
 [Code in game](./scripts/cup.gd)
 
 ```
-> 1 coffee, 2 milk
+1 coffee, 2 milk
 
 80% Flat White
 66% Cappuccino
