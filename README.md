@@ -1,5 +1,10 @@
 # Coffee Shop Game
-Small simulator game I'm developing in Godot, with [barinovadn](https://github.com/barinovadn) busy on the models.
+
+Small simulator game I'm developing in Godot, with [barinovadn](https://github.com/barinovadn) busy on the models.<br>
+
+> [!WARNING]
+> The project is currently on pause but the work may continue in the near future.<br>
+> If you're interested in contributing contact [me](../../../)!
 
 # Gameplay
 
