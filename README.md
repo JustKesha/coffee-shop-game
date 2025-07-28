@@ -12,7 +12,7 @@ Small simulator game I'm developing in Godot, with [barinovadn](https://github.c
 
 ## 🌶️ Latest changes
 
-* You can now pour certain ingredients like `milk` into cups.
+* You can now pour certain ingredients like `milk` into cups slowly.
 
 ## 🧊 Ingredients
 
@@ -23,7 +23,8 @@ Currently there are two ingidients in the game:
 > [!NOTE]
 > Support for extra ingredients & more complex recipes was already implemented.
 
-Some of them, like `milk` are interactable: You can start pouring it while you hold it.
+Some of them, like `milk` are interactable:<br>
+*RMK - You can start pouring milk down from where you hold it, to add only the amount of milk you need.*
 
 You make coffee by combining named ingredients in a cup, to do so just drag & drop or slowly pour the ingredients in it.
 
