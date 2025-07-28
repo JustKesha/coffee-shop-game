@@ -8,7 +8,7 @@ Small simulator game I'm developing in Godot, with [barinovadn](https://github.c
 
 # Gameplay
 
-![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333840482911916126/image.png?ex=679a5b40&is=679909c0&hm=5c5391f64653848ed65aeeaf0aaf911218b243eb66cf3538d3e34eec8c8d5197&)
+![silly screenshot](preview/ingredients.png)
 
 ## 🌶️ Latest changes
 
@@ -19,6 +19,9 @@ Small simulator game I'm developing in Godot, with [barinovadn](https://github.c
 Currently there are two ingidients in the game:
 - `Milk`
 - And `coffee mixture`
+
+> [!NOTE]
+> Support for extra ingredients & more complex recipes was already implemented.
 
 Some of them, like `milk` are interactable: You can start pouring it while you hold it.
 
@@ -33,10 +36,10 @@ Currently you can make a total of 5 drinks out of these two ingredients:
 1. `Cappuccino` (20/80)
 1. `Latte` (14.3/85.3)
 
-![silly screenshot](https://cdn.discordapp.com/attachments/1229518358022717594/1333721620296110080/image.png?ex=6799ec8d&is=67989b0d&hm=6d74d380092763f31fdf54f2363dee3cc68e5c096e577be1d171b50d733026fe&)
+![silly screenshot](preview/dummy.png)
 
 This customer dummy will analyse your drink, by:
 
-1. *Calculating the average match percentage between the ingredients ratio in the recipe and the ingredients ratio in the cup.*
+*Calculating the average match percentage between the ingredients ratio in the recipe and the ingredients ratio in the cup.*
 
 To make sure you get it's order right, or at least close enough!
